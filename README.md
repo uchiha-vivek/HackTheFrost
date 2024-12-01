@@ -76,4 +76,4 @@ Ensure you have the following installed on your system:
 
 ## Screenshots Of The Project
 
-<img src="./src/assets/kestra1.png" width="180px;" alt="Vivek Sharma"/><br />
+<img src="./src/assets/kestra1.png"  alt="ss"/><br />
