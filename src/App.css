@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,111 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+ */
+
+
+ :root {
+  --primary-color: #61dafb;
+  --secondary-color: #646cff;
+  --background-color: #282c34;
+  --text-color: #ffffff;
+  --muted-text-color: #888;
+  --hover-glow-color: rgba(100, 108, 255, 0.7);
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6rem;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  will-change: filter, transform;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 1.5rem var(--hover-glow-color));
+  transform: scale(1.05);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 1.5rem var(--primary-color));
+}
+
+@keyframes logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2rem;
+  margin: 1rem auto;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.read-the-docs {
+  color: var(--muted-text-color);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 4rem;
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+    margin: 0.5rem auto;
+  }
+}
+
+@media (min-width: 1281px) {
+  #root {
+    padding: 2rem;
+  }
+
+  .logo {
+    height: 7rem;
+  }
+
+  .card {
+    padding: 2.5rem;
+  }
 }
