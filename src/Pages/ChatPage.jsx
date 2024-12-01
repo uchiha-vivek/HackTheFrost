@@ -1,3 +1,9 @@
+// Chat.js
+// Description: A React-based AI chatbot interface integrated with Kestra for webhook execution and AI responses.
+// Author: [Your Name]
+// Date: [Current Date]
+// Dependencies: Axios for HTTP requests, react-syntax-highlighter for code formatting, and Tailwind CSS for styling.
+
 import '../App.css';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
@@ -6,20 +12,30 @@ import { Loading } from '../component/loading';
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// Fetch CORS configuration from environment variables
 const corsEnabled = import.meta.env.VITE_KESTRA_CORS_ENABLED || true;
 
 function Chat() {
-  const [loading, setLoading] = useState(false);
-  const [messages, setMessages] = useState([]);
-  const [responseData, setResponseData] = useState({});
-  const [executionData, setExecutionData] = useState(null);
+   // State hooks to manage component state
+  const [loading, setLoading] = useState(false); // Indicates loading state
+  const [messages, setMessages] = useState([]); // Stores user and AI messages
+  const [responseData, setResponseData] = useState({}); // Stores API response data
+  const [executionData, setExecutionData] = useState(null); // Stores Kestra execution data
+
+  /**
+   * Handle form submission to send a message.
+   * 1. Validates the message input.
+   * 2. Fetches AI-generated response.
+   * 3. Sends messages to the Kestra webhook.
+   */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = document.getElementById('message').value.trim();
-    if (!message) return;
+    if (!message) return; // Ignore empty input
 
-    setMessages((prev) => [...prev, `You: ${message}`]); // Add user input
+     // Add user message to the chat log
+    setMessages((prev) => [...prev, `You: ${message}`]); 
     setLoading(true);
 
     try {
@@ -40,10 +56,15 @@ function Chat() {
       setMessages((prev) => [...prev, 'Error: Unable to process your request.']);
     } finally {
       setLoading(false);
-      document.getElementById('message').value = ''; // Clear input
+      document.getElementById('message').value = ''; // Clear the input field
     }
   };
 
+   /**
+   * Fetch and log JSON execution data from Kestra.
+   * 1. Checks for a valid execution ID.
+   * 2. Fetches detailed data for the specified ID.
+   */
   const handlePrintJSON = async () => {
     if (!responseData.id) {
       console.log('No execution ID found');
@@ -63,6 +84,10 @@ function Chat() {
     }
   };
 
+  /**
+   * Renders chat messages.
+   * If the message contains code blocks, it formats them with SyntaxHighlighter.
+   */
   const renderMessageContent = (content) => {
     if (content.includes('```')) {
       const code = content.split('```').slice(1, -1).join('```');
@@ -96,11 +121,13 @@ function Chat() {
           Send
         </button>
       </form>
+       {/* Loading Spinner */}
       {loading && (
         <div className="mt-4">
           <Loading />
         </div>
       )}
+       {/* Chat Messages */}
       <div className="flex flex-col mt-6 w-full max-w-2xl space-y-4 overflow-y-auto">
         {messages.map((message, index) => (
           <div
@@ -111,6 +138,7 @@ function Chat() {
           </div>
         ))}
       </div>
+      {/* Execution ID and Link */}
       {responseData.id && (
   <div className="mt-6 bg-gray-700 p-4 rounded-lg text-center space-y-4">
     <p className="text-gray-400 text-sm">Execution ID:</p>
