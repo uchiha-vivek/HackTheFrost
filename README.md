@@ -80,3 +80,7 @@ Ensure you have the following installed on your system:
 <img src="./src/assets/kestra2.png"  alt="ss"/><br />
 <img src="./src/assets/kestra3.png"  alt="ss"/><br />
 <img src="./src/assets/kestra4.png"  alt="ss"/><br />
+
+Architecture Planning 
+
+<img src="./src/assets/Architecture.jpeg" alt='architecture'/><br/>
