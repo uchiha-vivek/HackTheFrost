@@ -37,7 +37,7 @@ function Chat() {
 
       // Send messages to Kestra webhook
       const kestraResponse = await axios.post(
-        'http://localhost:8080/api/v1/executions/webhook/company.team/webhook_example/abcdefg',
+        'http://localhost:8080/api/v1/executions/webhook/company.ai/AI_content/abcdefg',
         { messages },
         { withCredentials: corsEnabled }
       );
