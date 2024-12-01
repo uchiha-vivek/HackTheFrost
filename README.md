@@ -75,3 +75,5 @@ Ensure you have the following installed on your system:
 4. Tailwind CSS: Utility-first CSS framework for styling
 
 ## Screenshots Of The Project
+
+<img src="./src/assets/kestra1.png" width="180px;" alt="Vivek Sharma"/><br />

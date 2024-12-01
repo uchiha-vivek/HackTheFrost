@@ -1,0 +1,16 @@
+id: AI_content 
+namespace: company.ai
+
+tasks:
+  - id: hello
+    type: io.kestra.plugin.core.log.Log
+    message: "{{ trigger.body.dataField ?? 'null' }}"
+
+triggers:
+  - id: webhook
+    type: io.kestra.plugin.core.trigger.Webhook
+    key: abcdefg
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "@hourly"
+ 
