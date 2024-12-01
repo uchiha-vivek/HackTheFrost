@@ -77,3 +77,6 @@ Ensure you have the following installed on your system:
 ## Screenshots Of The Project
 
 <img src="./src/assets/kestra1.png"  alt="ss"/><br />
+<img src="./src/assets/kestra2.png"  alt="ss"/><br />
+<img src="./src/assets/kestra3.png"  alt="ss"/><br />
+<img src="./src/assets/kestra4.png"  alt="ss"/><br />
